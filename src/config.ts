@@ -5,7 +5,8 @@ export const config = {
     type: Phaser.AUTO,
     width: window.innerWidth,
     height: window.innerHeight,
-    backgroundColor: '#2d2d2d',
+    // backgroundColor: '#2d2d2d',
+    backgroundColor: '#ffffff',
     parent: 'phaser-example',
     scene: Example,
 }

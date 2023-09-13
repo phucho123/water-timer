@@ -15,7 +15,18 @@ class Tile extends Phaser.GameObjects.Container {
         const rect = this.scene.add
             .rectangle(0, 0, this.tileWidth, this.tileHeight, 0xffffff)
             .setOrigin(0.5, 0.5)
-            .setStrokeStyle(2, 0x2d2d2d)
+            // .setStrokeStyle(2, 0x2d2d2d)
+            .setDepth(0)
+        const rect2 = this.scene.add
+            .rectangle(0, -this.tileHeight, this.tileWidth, this.tileHeight, 0xffffff)
+            .setOrigin(0.5, 0.5)
+            // .setStrokeStyle(2, 0x2d2d2d)
+            .setDepth(2)
+        const rect3 = this.scene.add
+            .rectangle(0, this.tileHeight, this.tileWidth, this.tileHeight, 0xffffff)
+            .setOrigin(0.5, 0.5)
+            // .setStrokeStyle(2, 0x2d2d2d)
+            .setDepth(2)
         this.setSize(rect.width, rect.height)
         this.setPosition(
             (this.width / 2) * index - this.tileWidth * 2,
@@ -30,6 +41,7 @@ class Tile extends Phaser.GameObjects.Container {
                 color: '#2d2d2d',
             })
             .setOrigin(0.5, 0.5)
+            .setDepth(1)
         this.text.setPosition(0, 0)
 
         this.text2 = this.scene.add
@@ -39,6 +51,7 @@ class Tile extends Phaser.GameObjects.Container {
                 color: '#2d2d2d',
             })
             .setOrigin(0.5, 0.5)
+            .setDepth(1)
         this.text2.setPosition(0, this.tileHeight)
         this.add(this.text)
         this.add(this.text2)
@@ -51,6 +64,8 @@ class Tile extends Phaser.GameObjects.Container {
         //         this.text2.y = this.text.y + this.tileHeight
         //     },
         // })
+        this.add(rect2)
+        this.add(rect3)
     }
 
     update() {
