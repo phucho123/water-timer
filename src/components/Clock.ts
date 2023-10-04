@@ -129,6 +129,8 @@ export class Clock extends Phaser.GameObjects.Container {
     private keyS: Phaser.Input.Keyboard.Key | undefined
     private keyD: Phaser.Input.Keyboard.Key | undefined
     private keyF: Phaser.Input.Keyboard.Key | undefined
+    private keyT: Phaser.Input.Keyboard.Key | undefined
+    private keyG: Phaser.Input.Keyboard.Key | undefined
     constructor(scene: Phaser.Scene) {
         super(scene)
         this.create()
@@ -150,40 +152,42 @@ export class Clock extends Phaser.GameObjects.Container {
         this.keyS = this.scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.S)
         this.keyD = this.scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.D)
         this.keyF = this.scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.F)
+        this.keyT = this.scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.T)
+        this.keyG = this.scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.G)
     }
 
     update() {
         //scroll up
-        if (this.keyQ?.isDown) {
+        if (this.keyQ?.isDown || this.keyT?.isDown) {
             const tile = this.getAt(0) as Tile
             tile.scrollUp()
         }
-        if (this.keyW?.isDown) {
+        if (this.keyW?.isDown || this.keyT?.isDown) {
             const tile = this.getAt(1) as Tile
             tile.scrollUp()
         }
-        if (this.keyE?.isDown) {
+        if (this.keyE?.isDown || this.keyT?.isDown) {
             const tile = this.getAt(2) as Tile
             tile.scrollUp()
         }
-        if (this.keyR?.isDown) {
+        if (this.keyR?.isDown || this.keyT?.isDown) {
             const tile = this.getAt(3) as Tile
             tile.scrollUp()
         }
         //scroll down
-        if (this.keyA?.isDown) {
+        if (this.keyA?.isDown || this.keyG?.isDown) {
             const tile = this.getAt(0) as Tile
             tile.scrollDown()
         }
-        if (this.keyS?.isDown) {
+        if (this.keyS?.isDown || this.keyG?.isDown) {
             const tile = this.getAt(1) as Tile
             tile.scrollDown()
         }
-        if (this.keyD?.isDown) {
+        if (this.keyD?.isDown || this.keyG?.isDown) {
             const tile = this.getAt(2) as Tile
             tile.scrollDown()
         }
-        if (this.keyF?.isDown) {
+        if (this.keyF?.isDown || this.keyG?.isDown) {
             const tile = this.getAt(3) as Tile
             tile.scrollDown()
         }
